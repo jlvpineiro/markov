@@ -47,29 +47,25 @@ void markov::writeFile(int numTweets) {
   for (int i=0; i<numTweets; i++) {
     string firstWord = ht->randFirst();
     outfile << firstWord;
-    //outfile << ht->first << " ";
+    cout << firstWord;
     int ct = firstWord.length();
     string key = "";
     string value = ht->map[ht->getIndex(firstWord)]->getRandValue();
     int len = 0;
     while (ct + value.length()+1 < 280) { // && value != "") {
-      cout << ct << endl;
       key = value;
       if (key.length() > 1 || !ispunct(key[0])) {
         outfile << " ";
+        cout << " ";
         ct++;
       }
       outfile << key;
-      cout << value << " ";
-      //if (len == 11) {
-        //outfile << "\n";
-        //len = 0;}
-      //else len++;
+      cout << key;
       ct += value.length();
-      cout << value.length() << endl;
       value = ht->map[ht->getIndex(key)]->getRandValue();
     }
     outfile << "\n\n\n";
+    cout << endl << endl;
   }
   outfile.close();
 }

@@ -16,10 +16,11 @@ int main() {
   srand(time(NULL));
 
   string infile = "sample.txt";
+  string outfile = "tweets.txt";
   int numTweets = 1;
 
   //hash 1, coll1
-  markov *m = new markov(infile,"tweets.txt",true,true);
+  markov *m = new markov(infile,outfile,true,true);
 
   m->writeFile(8);
 
