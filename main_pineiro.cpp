@@ -15,7 +15,7 @@ int main() {
   //seed random number generator
   srand(time(NULL));
 
-  string infile = "nk";
+  string infile = "sample.txt";
   int numTweets = 1;
 
   //hash 1, coll1
