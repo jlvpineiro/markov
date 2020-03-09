@@ -184,8 +184,15 @@ int hashMap::findKey(string k) {
 string hashMap::randFirst() {
   if (numKeys > 0) {
     int i = rand() % mapSize;
+    int orig_ind = i;
     while (map[i] == NULL || islower(map[i]->keyword[0])) {
       i++;
+      if (i >= mapSize) {
+        i=0;
+      }
+      if (i == orig_ind) {
+        return "";
+      }
     }
     return map[i]->keyword;
   }
